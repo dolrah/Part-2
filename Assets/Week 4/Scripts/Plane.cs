@@ -20,6 +20,8 @@ public class Plane : MonoBehaviour
 
     public AnimationCurve landing;
 
+    public float landingtimer;
+
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -31,6 +33,18 @@ public class Plane : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            landingtimer += 0.5f * Time.deltaTime;
+            float interpolation = landing.Evaluate(landingtimer);
+            if(transform.localScale.z < 0.1f)
+            {
+                Destroy(gameObject);
+            }
+
+            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, interpolation);
+        }
+
         lineRenderer.SetPosition(0 , transform.position);
         if(points.Count > 0)
         {
