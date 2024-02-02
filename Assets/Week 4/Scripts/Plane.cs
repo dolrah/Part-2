@@ -22,6 +22,12 @@ public class Plane : MonoBehaviour
 
     public float landingtimer;
 
+
+
+    public List<Sprite> looks;
+
+    SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -29,6 +35,11 @@ public class Plane : MonoBehaviour
         lineRenderer.SetPosition(0,transform.position);
 
         rb = GetComponent<Rigidbody2D>();
+        speed = Random.Range(1, 3);
+
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = looks[Random.Range(0, looks.Count)];
     }
 
     private void Update()
@@ -45,7 +56,7 @@ public class Plane : MonoBehaviour
             transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, interpolation);
         }
 
-        lineRenderer.SetPosition(0 , transform.position);
+       lineRenderer.SetPosition(0 , transform.position);
         if(points.Count > 0)
         {
             if (Vector2.Distance(currentPosition, points[0]) < newPositionThreshold)
