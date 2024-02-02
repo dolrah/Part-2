@@ -22,11 +22,14 @@ public class Plane : MonoBehaviour
 
     public float landingtimer;
 
-
+    public float crash = 0f;
 
     public List<Sprite> looks;
 
     SpriteRenderer spriteRenderer;
+
+    //public Camera cam;
+   
 
     private void Start()
     {
@@ -40,6 +43,9 @@ public class Plane : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = looks[Random.Range(0, looks.Count)];
+        spriteRenderer.color = Color.white;
+
+
     }
 
     private void Update()
@@ -69,6 +75,11 @@ public class Plane : MonoBehaviour
                 lineRenderer.positionCount--;
             }
         }
+
+      //  if (gameObject != cam)
+        //{
+          //  Destroy(gameObject);
+       // }
     }
 
     private void FixedUpdate()
@@ -112,6 +123,24 @@ public class Plane : MonoBehaviour
             lineRenderer.SetPosition(lineRenderer.positionCount - 1 , newPosition);
             lastPosition = newPosition;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        spriteRenderer.color = Color.red;
+        
+        crash = Vector2.Distance(transform.position, collision.transform.position);
+
+        if (crash < 2)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        spriteRenderer.color = Color.white;
+
     }
 
 }
