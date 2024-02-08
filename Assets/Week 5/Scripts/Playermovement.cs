@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
-    public Vector2 mouseClick;
-    public Vector2 currentPos;
+    public Vector3 mouseClick;
+    public Vector3 currentPos;
+    public Camera Maincamera;
+
+   public GameObject player;
 
     bool north;
     bool south;
@@ -23,22 +26,23 @@ public class Playermovement : MonoBehaviour
 
     void Update()
     {
-        if (north) { transform.position = currentPos; }
-        
+        //if (north) { player.transform.position = currentPos; }
+        mouseClick = Input.mousePosition;
+        Debug.Log(mouseClick);
     }
 
     private void OnMouseDown()
     {
         //gets and stores the cords where the mouse was clicked
-        Vector2 mousePos = transform.position;
-        mouseClick = mousePos;
-
+        Vector3 mousePos = Maincamera.ScreenToWorldPoint(Input.mousePosition);
+        mouseClick = Input.mousePosition;
+/*
         if (currentPos.x < mouseClick.x) { east = true; }
         if (currentPos.y < mouseClick.y) { south = true; }
         if (currentPos.x > mouseClick.x) { west = true; }
         if (currentPos.y > mouseClick.y) { north = true; }
 
-        
+     */   
         
     }
 }
