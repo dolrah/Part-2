@@ -76,10 +76,6 @@ public class Plane : MonoBehaviour
             }
         }
 
-      //  if (gameObject != cam)
-        //{
-          //  Destroy(gameObject);
-       // }
     }
 
     private void FixedUpdate()
