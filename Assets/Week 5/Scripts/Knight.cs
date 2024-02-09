@@ -11,12 +11,26 @@ public class Knight : MonoBehaviour
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();   
     }
 
-    // Update is called once per frame
+    private void FixedUpdate()
+    {
+        movement = destination - (Vector2)transform.position;
+
+        if(movement.magnitude < 0.1)
+        {
+            movement = Vector2.zero;
+        }
+        rb.MovePosition(rb.position+movement.normalized*speed*Time.deltaTime);
+    }
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0) )
+        {
+            destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+
     }
 }
