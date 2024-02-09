@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
-    public Vector3 mouseClick;
-    public Vector3 currentPos;
+    public Vector2 mouseClick;
+    public Vector2 currentPos;
     public Camera Maincamera;
+    public float speed;
 
    public GameObject player;
 
@@ -26,23 +27,73 @@ public class Playermovement : MonoBehaviour
 
     void Update()
     {
-        //if (north) { player.transform.position = currentPos; }
-        mouseClick = Input.mousePosition;
-        Debug.Log(mouseClick);
-    }
-
-    private void OnMouseDown()
-    {
-        //gets and stores the cords where the mouse was clicked
-        Vector3 mousePos = Maincamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseClick = Input.mousePosition;
-/*
-        if (currentPos.x < mouseClick.x) { east = true; }
-        if (currentPos.y < mouseClick.y) { south = true; }
-        if (currentPos.x > mouseClick.x) { west = true; }
-        if (currentPos.y > mouseClick.y) { north = true; }
-
-     */   
         
+
+        
+        Debug.Log(mouseClick);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("mouseclicked");
+            //gets and stores the cords where the mouse was clicked
+            Vector2 mousePos = Maincamera.ScreenToWorldPoint(Input.mousePosition);
+            mouseClick = mousePos;
+            
+                    if (currentPos.x < mouseClick.x) { east = true; }
+            else { east = false; }
+                    if (currentPos.y < mouseClick.y) { south = true; }
+            else { south = false; }
+                    if (currentPos.x > mouseClick.x) { west = true; }
+            else { west = false; }
+                    if (currentPos.y > mouseClick.y) { north = true; }
+            else { north = false; }
+
+             
+        }
+
+
+        if (north == true)
+        {
+            if (Vector2.Distance(currentPos, mouseClick) > 1)
+            {
+                currentPos.y = currentPos.y - speed;
+                transform.position = currentPos;
+            }
+ 
+          
+        }
+
+        if (south == true)
+        {
+            if (Vector2.Distance(currentPos, mouseClick) > 1)
+            {
+                currentPos.y = currentPos.y + speed;
+                transform.position = currentPos;
+            }
+
+        }
+
+        if (east == true)
+        {
+            if (Vector2.Distance(currentPos, mouseClick) > 1)
+            {
+                currentPos.x = currentPos.x + speed;
+                transform.position = currentPos;
+                
+            }
+       
+        }
+
+        if (west == true)
+        {
+            if (Vector2.Distance(currentPos, mouseClick) > 1)
+            {
+                currentPos.x = currentPos.x - speed;
+                transform.position = currentPos;
+              
+            }
+          
+        }
     }
+
+
 }
