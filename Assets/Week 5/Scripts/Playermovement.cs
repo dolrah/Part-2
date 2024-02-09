@@ -6,10 +6,9 @@ public class Playermovement : MonoBehaviour
 {
     public Vector2 mouseClick;
     public Vector2 currentPos;
-    public Camera Maincamera;
     public float speed;
 
-   public GameObject player;
+
 
     bool north;
     bool south;
@@ -56,7 +55,8 @@ public class Playermovement : MonoBehaviour
             if (Vector2.Distance(currentPos, mouseClick) > 1)
             {
                 currentPos.y = currentPos.y - speed;
-                transform.position = currentPos;
+                currentPos.y = transform.position.y;
+                
             }
  
           
@@ -67,7 +67,8 @@ public class Playermovement : MonoBehaviour
             if (Vector2.Distance(currentPos, mouseClick) > 1)
             {
                 currentPos.y = currentPos.y + speed;
-                transform.position = currentPos;
+               currentPos.y = transform.position.y;
+                
             }
 
         }
@@ -77,8 +78,9 @@ public class Playermovement : MonoBehaviour
             if (Vector2.Distance(currentPos, mouseClick) > 1)
             {
                 currentPos.x = currentPos.x + speed;
-                transform.position = currentPos;
+                currentPos.x = transform.position.x;
                 
+
             }
        
         }
@@ -88,8 +90,9 @@ public class Playermovement : MonoBehaviour
             if (Vector2.Distance(currentPos, mouseClick) > 1)
             {
                 currentPos.x = currentPos.x - speed;
-                transform.position = currentPos;
-              
+                currentPos.x = transform.position.x;
+               
+
             }
           
         }
