@@ -9,9 +9,13 @@ public class Knight : MonoBehaviour
     public float speed = 3f;
     Rigidbody2D rb;
 
+    Animator animator;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+
+        rb = GetComponent<Rigidbody2D>();  
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -30,6 +34,7 @@ public class Knight : MonoBehaviour
         {
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
+        animator.SetFloat("Movment", movement.magnitude);
 
 
     }
