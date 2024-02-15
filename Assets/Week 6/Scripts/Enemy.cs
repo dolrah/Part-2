@@ -13,10 +13,13 @@ public class Enemy : MonoBehaviour
     public float health;
     public float damage = 1f;
 
+    SpriteRenderer damagecolor;
+
     void Start()
     {
         health = maxHealth;
-   
+        damagecolor = GetComponent<SpriteRenderer>();
+        damagecolor.color = Color.white;
     }
 
     private void FixedUpdate()
@@ -27,13 +30,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        damagecolor.color = Color.white;
+    }
 
-     private void OnMouseDown()
+
+    private void OnMouseDown()
     {
         clickingOnEnemy = true;
         SendMessage("TakeDamage", 2);
 
-        
+        damagecolor.color = Color.red;
     }
 
     public void TakeDamage()
