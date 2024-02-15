@@ -22,8 +22,11 @@ public class ReplacementKnight : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        health = maxHealth;
         isDead = false;
+        health = PlayerPrefs.GetFloat("SetHealth", health);
+
+        SendMessage("SetHealth", health);
+       
     }
 
     private void FixedUpdate()
@@ -56,6 +59,7 @@ public class ReplacementKnight : MonoBehaviour
         }
 
         animator.SetFloat("Movement", movement.magnitude);
+        PlayerPrefs.SetFloat("SetHealth",health);
     }
     private void OnMouseDown()
     {

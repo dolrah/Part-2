@@ -420,7 +420,7 @@ MonoBehaviour:
   endPosition: {fileID: 415801568}
   startColor: {r: 0.9622642, g: 0.6581524, b: 0.8202218, a: 1}
   endColor: {r: 0.59460664, g: 0.9622642, b: 0.6233799, a: 1}
-  sr: {fileID: 0}
+  sr: {fileID: 1379067051}
   lerpTimer: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
