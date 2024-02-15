@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ReplacementKnight : MonoBehaviour
 {
@@ -42,7 +43,9 @@ public class ReplacementKnight : MonoBehaviour
     {
         if (isDead) return;
 
-        if (Input.GetMouseButtonDown(0) && !clickingOnSelf)
+        //checks where youre clicking, if its not on the player, and that its not on the UI
+        //this will save the point clicked
+        if (Input.GetMouseButtonDown(0) && !clickingOnSelf && !EventSystem.current.IsPointerOverGameObject())
         {
             destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
