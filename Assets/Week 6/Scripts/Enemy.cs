@@ -28,9 +28,10 @@ public class Enemy : MonoBehaviour
         {
             health = health -1;
         }
+
     }
 
-    private void Update()
+    private void OnMouseUp()
     {
         damagecolor.color = Color.white;
     }
