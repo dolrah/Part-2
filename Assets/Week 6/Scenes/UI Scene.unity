@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1920
   height: 1080
-  fullscreen: 0
+  fullscreen: 1
 --- !u!1 &1641274456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 16
   height: 9
-  fullscreen: 0
+  fullscreen: 1
 --- !u!1 &2022699711
 GameObject:
   m_ObjectHideFlags: 0
