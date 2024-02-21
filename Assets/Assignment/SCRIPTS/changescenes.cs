@@ -8,5 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class changescenes : MonoBehaviour
 {
-    
+    public void changingscene()
+    {
+        //figures out what scene the player is on
+        int currentscene = SceneManager.GetActiveScene().buildIndex;
+
+        //figures out what the next scene is
+        // if there are no more 'next scenes' it loops back to the first one
+        int nextscene = (currentscene + 1) % SceneManager.sceneCountInBuildSettings;
+        SceneManager.LoadScene(nextscene);
+    }
 }
