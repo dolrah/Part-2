@@ -7,11 +7,15 @@ using UnityEngine;
 public class soccerMovement : MonoBehaviour
 {
     SpriteRenderer playerselected;
+    Rigidbody2D rb;
+
+    public float speed = 49f;
     bool clickingOnSelf;
 
     private void Start()
     {
         playerselected = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
         seleceted(false); 
     }
 
@@ -25,6 +29,11 @@ public class soccerMovement : MonoBehaviour
             playerselected.color = Color.magenta;
         }
         else { playerselected.color = Color.white; }
+    }
+
+    public void Move(Vector2 direction)
+    {
+        rb.AddForce(direction * speed);
     }
 
     private void OnMouseDown()
