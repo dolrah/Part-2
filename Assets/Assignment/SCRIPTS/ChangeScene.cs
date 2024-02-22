@@ -6,7 +6,7 @@ using UnityEngine;
 //lets you do stuff with the scenes
 using UnityEngine.SceneManagement;
 
-public class changescenes : MonoBehaviour
+public class ChangeScene : MonoBehaviour
 {
     public void changingscene()
     {
