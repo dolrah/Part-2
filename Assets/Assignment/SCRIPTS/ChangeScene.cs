@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public void changingscene()
+    public void NextScene()
     {
         //figures out what scene the player is on
         int currentscene = SceneManager.GetActiveScene().buildIndex;
@@ -17,5 +17,10 @@ public class ChangeScene : MonoBehaviour
         // if there are no more 'next scenes' it loops back to the first one
         int nextscene = (currentscene + 1) % SceneManager.sceneCountInBuildSettings;
         SceneManager.LoadScene(nextscene);
+    }
+
+    public void Planet(int value)
+    {
+        SceneManager.LoadScene(value);
     }
 }
