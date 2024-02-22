@@ -12,7 +12,7 @@ public class soccerMovement : MonoBehaviour
     private void Start()
     {
         playerselected = GetComponent<SpriteRenderer>();
-        playerselected.color = Color.white;
+        seleceted(false);
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class soccerMovement : MonoBehaviour
         if (clickingOnSelf == true)
         {
             print("clicking on self");
-            playerselected.color = Color.cyan;
+            playerselected.color = Color.magenta;
         }
         else { playerselected.color = Color.white; }
     }
