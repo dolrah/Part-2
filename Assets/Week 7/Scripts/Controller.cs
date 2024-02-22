@@ -64,7 +64,7 @@ public class Controller : MonoBehaviour
         //when it is released
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - selectedPlayer.transform.position).normalized * chargeValue;
+            direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)selectedPlayer.transform.position).normalized * chargeValue;
         }
     }
 }
