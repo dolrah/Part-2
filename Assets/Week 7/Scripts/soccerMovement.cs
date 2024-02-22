@@ -12,19 +12,16 @@ public class soccerMovement : MonoBehaviour
     private void Start()
     {
         playerselected = GetComponent<SpriteRenderer>();
-        seleceted(false);
+        seleceted(false); 
     }
 
-    private void Update()
-    {
-        seleceted(clickingOnSelf);
-    }
 
+    //if player is selected highlights them
     public void seleceted(bool clickingOnSelf)
     {
         if (clickingOnSelf == true)
         {
-            print("clicking on self");
+          
             playerselected.color = Color.magenta;
         }
         else { playerselected.color = Color.white; }
@@ -32,8 +29,7 @@ public class soccerMovement : MonoBehaviour
 
     private void OnMouseDown()
     {
-        print("mousedown");
-        clickingOnSelf = true;
+        Controller.setselectedplayer(this);
     }
 
 }
