@@ -36,9 +36,4 @@ public class soccerMovement : MonoBehaviour
         clickingOnSelf = true;
     }
 
-    private void OnMouseUp()
-    {
-        print("mouseup");
-        clickingOnSelf = false;
-    }
 }
