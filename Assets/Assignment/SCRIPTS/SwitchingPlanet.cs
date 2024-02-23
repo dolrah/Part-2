@@ -3,18 +3,21 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.EventSystems;
 
 public class SwitchingPlanet : MonoBehaviour
 {
-Animator animator;
+    Animator animator;
     int planet;
     private void Start()
     {
         animator = GetComponent<Animator>();
+      
     }
 
-    public void lookingPlanet(int num)
+
+    public void LookingPlanet(int num)
     {
         //this should change planets(the animation on the side) when a new one is selected
         switch (num)
@@ -32,9 +35,16 @@ Animator animator;
             case 10:animator.SetInteger("Planet",11); break;
             case 11:animator.SetInteger("Planet",12); break;
             case 12:animator.SetInteger("Planet",13); break;
-            
+
+           SendMessage("Planet", num + 2);
         }
         planet = num;
-        SendMessage("Planet", planet);
+
+    }
+
+
+    public void Update()
+    {
+        LookingPlanet(planet);
     }
 }
