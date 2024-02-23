@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    int delay = 0;
     public void NextScene()
     {
         //figures out what scene the player is on
@@ -21,6 +22,12 @@ public class ChangeScene : MonoBehaviour
 
     public void Planet(int value)
     {
+        delay = 0;
+        while(delay != 400)
+        {
+            delay++;
+        }
         SceneManager.LoadScene(value);
     }
+
 }
